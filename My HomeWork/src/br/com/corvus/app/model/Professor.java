@@ -12,6 +12,13 @@ package br.com.corvus.app.model;
 public class Professor {
 
     /**
+     * @return the codigo
+     */
+    public int getCodigo() {
+        return codigo;
+    }
+
+    /**
      * @param codigo the codigo to set
      */
     public void setCodigo(int codigo) {
@@ -19,20 +26,8 @@ public class Professor {
     }
     private int codigo;
     private String email;
-    /**
-     * @return the codigo
-     */
-    public String getCodigo() {
-        return codigo;
-    }
 
-    /**
-     * @param codigo the codigo to set
-     */
-    public void setCodigo(String codigo) {
-        this.setCodigo(codigo);
-    }
-
+  
     /**
      * @return the email
      */
@@ -46,5 +41,24 @@ public class Professor {
     public void setEmail(String email) {
         this.email = email;
     }
-
+    
+    public void cadastrarProfessor(){
+    }
+    
+    public void alterarProfessor(){
+        
+    }
+    public void alteraProfessor(){
+        
+    }
+    public void pesquisarProfessor(){
+        
+    }
+    public void apagarProfessor(){
+        
+    }
+    
+    public void listarProfessor(){
+        
+    }
 }
