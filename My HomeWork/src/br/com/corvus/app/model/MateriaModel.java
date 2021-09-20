@@ -10,6 +10,7 @@ package br.com.corvus.app.model;
  * @author waleson_melo
  */
 public class MateriaModel {
+
     private int codigo;
     private String nome;
     private String cargaHoraria;
@@ -100,6 +101,25 @@ public class MateriaModel {
     public void setStatus(String status) {
         this.status = status;
     }
-    
-    
+
+    //==========================================================================
+    public void cadastrarMateria() {
+
+    }
+
+    public void alterarMateria() {
+
+    }
+
+    public void pesquisarMateria() {
+
+    }
+
+    public void apagarMateria() {
+
+    }
+
+    public void listarMaterias() {
+
+    }
 }
