@@ -10,6 +10,7 @@ package br.com.corvus.app.model;
  * @author waleson_melo
  */
 public class InstituicaoModel {
+
     private int codigo;
     private String nome;
     private String observacoes;
@@ -55,6 +56,25 @@ public class InstituicaoModel {
     public void setObservacoes(String observacoes) {
         this.observacoes = observacoes;
     }
-    
-    
+
+    //==========================================================================
+    public void cadastrarInstituicao() {
+
+    }
+
+    public void alterarInstituicao() {
+
+    }
+
+    public void pesquisarInstituicao() {
+
+    }
+
+    public void apagarInstituicao() {
+
+    }
+
+    public void listarInstituicao() {
+
+    }
 }
