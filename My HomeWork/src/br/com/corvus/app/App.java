@@ -5,6 +5,7 @@
  */
 package br.com.corvus.app;
 
+import br.com.corvus.app.view.MateriaView;
 import br.com.corvus.app.view.MenusView;
 import java.util.Scanner;
 
@@ -18,17 +19,22 @@ public class App {
         
         Scanner sc = new Scanner(System.in);
         MenusView mv = new MenusView();
+        MateriaView matv = new MateriaView();
         
-        while(true){
-            
+        OUTER:
+        while (true) {
+            mv.menuPrincipal();
             opcao = Integer.parseInt(sc.nextLine());
-            
-            if(opcao == 0){
-                break;
-            }
-            
-            if(opcao == 1){
-                
+            switch (opcao) {
+                case 0:
+                    break OUTER;
+                case 1:
+                    break;
+                case 2:
+                    matv.menuMateriaView();
+                    break;
+                default:
+                    break;
             }
         }
     }
