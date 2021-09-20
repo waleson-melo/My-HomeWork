@@ -10,6 +10,8 @@ package br.com.corvus.app.model;
  * @author marip
  */
 public class Professor {
+    private int codigo;
+    private String email;
 
     /**
      * @return the codigo
@@ -24,9 +26,6 @@ public class Professor {
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
-    private int codigo;
-    private String email;
-
   
     /**
      * @return the email
