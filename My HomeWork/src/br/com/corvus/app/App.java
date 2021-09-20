@@ -10,5 +10,7 @@ package br.com.corvus.app;
  * @author waleson_melo
  */
 public class App {
-    
+    public static void main(String[] args) {
+        System.out.println("br.com.corvus.app.App.main()");
+    }
 }
