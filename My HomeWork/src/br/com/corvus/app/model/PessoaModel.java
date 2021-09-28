@@ -9,11 +9,10 @@ package br.com.corvus.app.model;
  *
  * @author marip
  */
-public class Pessoa {
+public class PessoaModel {
     private String nome;
     private String cpf;
     private String telefone;
-
     /**
      * @return the nome
      */

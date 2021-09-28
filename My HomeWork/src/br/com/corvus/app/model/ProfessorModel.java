@@ -9,7 +9,7 @@ package br.com.corvus.app.model;
  *
  * @author marip
  */
-public class Professor {
+public class ProfessorModel {
     private int codigo;
     private String email;
 
