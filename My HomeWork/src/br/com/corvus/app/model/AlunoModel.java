@@ -11,4 +11,23 @@ package br.com.corvus.app.model;
  */
 public class AlunoModel {
     
+    private int matrícula;
+    private String email;
+   
+    public int getMatricula(){
+        return matrícula;
+    }
+    
+    public void setMatricula( int matrícula ){
+        this.matricula = matricula;
+    }
+    
+    public String getEmail(){
+        return email;
+    }
+    
+    public void setEmail( String email ){
+        this.email = email;
+    }
+    
 }
