@@ -7,7 +7,7 @@ package br.com.corvus.app.model;
 
 /**
  *
- * @author waleson_melo
+ * @author caroi
  */
 public class AlunoModel {
     
