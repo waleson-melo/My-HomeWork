@@ -19,7 +19,7 @@ public class AlunoModel {
     }
     
     public void setMatricula( int matrícula ){
-        this.matricula = matricula;
+        this.matrícula = matrícula;
     }
     
     public String getEmail(){
