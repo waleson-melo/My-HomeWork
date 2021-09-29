@@ -11,4 +11,69 @@ package br.com.corvus.app.model;
  */
 public class AtividadeModel {
     
+    private int código;
+    private String nome;
+    private int códigoNome;
+    private String matériaNome;
+    private date data;
+    private float nota;
+    private String status;
+    private String tipo;
+    
+    public int getCódigo(){
+        return código;
+    }
+    
+    public void setCódigo( int código ){
+        this.código = código;
+    }
+    
+    public String getNome(){
+        return nome;
+    }
+    
+    public void setNome( String nome ){
+        this.nome = nome;
+    }
+    
+    public int getCódigoNome (){
+        return códigoNome;
+    }
+    
+    public void setCódigoNome ( int códigoNome ){
+        this.códigoNome = códigoNome;
+    }
+    
+    public String getMatériaNome (){
+        return matériaNome;
+    } 
+    
+    public void setMatériaNome ( String matériaNome ){
+        this.matériaNome = matériaNome;
+    }
+    
+    public date getData (){
+        return data;
+    }
+    
+    public void setData ( date data ){
+        this.data = data;
+    }
+    
+    public String getStatus (){
+        return status;
+    }
+    
+    public void setStatus ( String status ){
+        this.status = status;
+    }
+    
+    public String getTipo (){
+        return tipo;
+    }
+    
+    public vois setTipo ( String tipo ){
+        this.tipo = tipo;
+    }
+   
 }
