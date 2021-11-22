@@ -72,7 +72,7 @@ public class AtividadeModel {
         return tipo;
     }
     
-    public vois setTipo ( String tipo ){
+    public void setTipo ( String tipo ){
         this.tipo = tipo;
     }
    
