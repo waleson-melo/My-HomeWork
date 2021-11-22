@@ -6,6 +6,7 @@
 package br.com.corvus.app.view;
 
 import br.com.corvus.app.model.MateriaModel;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 /**
@@ -17,7 +18,7 @@ public class MateriaView {
     
     MateriaModel mm = new MateriaModel();
     
-    public void menuMateriaView(){
+    public void menuMateriaView() throws SQLException{
         int opcao = -1;
         
         OUTER:
@@ -58,20 +59,25 @@ public class MateriaView {
         }
     } 
     
-    public void cadastrarMateriaView(){
+    public void cadastrarMateriaView() throws SQLException{
         Scanner sc = new Scanner(System.in);
         
         System.out.println("==============================");
         System.out.println("==========MATERIA=============");
         System.out.println("==============================");
         System.out.print("Nome: ");
+        
         mm.setNome(sc.nextLine());
         System.out.print("Carga Horaria: ");
         mm.setCargaHoraria(sc.nextLine());
+        System.out.println("Codigo Professor");
+        mm.setCodigoProfessor(sc.nextLine());
         System.out.print("Nome Professor: ");
         mm.setProfessorNome(sc.nextLine());
         System.out.print("Status: ");
         mm.setStatus(sc.nextLine());
+        
+        mm.cadastrarMateria();
     }
     
     public void listarMaterias(){

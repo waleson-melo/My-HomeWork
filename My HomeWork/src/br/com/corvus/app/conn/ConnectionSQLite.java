@@ -8,13 +8,13 @@ import java.sql.*;
  */
 public class ConnectionSQLite {
 
-    private Connection conn;
-    private Statement stm;
+    public Connection conn;
+    public Statement stm;
 
-    public ConnectionSQLite(String arquivo) throws SQLException, ClassNotFoundException {
+    public ConnectionSQLite() throws SQLException, ClassNotFoundException {
         Class.forName("org.sqlite.JDBC");
 
-        this.conn = DriverManager.getConnection("jdbc:sqlite:" + arquivo);
+        this.conn = DriverManager.getConnection("jdbc:sqlite:dbsistema.db");
         this.stm = this.conn.createStatement();
     }
 

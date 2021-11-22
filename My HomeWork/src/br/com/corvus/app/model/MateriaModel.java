@@ -5,30 +5,47 @@
  */
 package br.com.corvus.app.model;
 
+import br.com.corvus.app.conn.ConnectionSQLite;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author waleson_melo
  */
 public class MateriaModel {
 
-    private int codigo;
+    private String codigo;
     private String nome;
     private String cargaHoraria;
-    private int codigoProfessor;
+    private String codigoProfessor;
     private String professorNome;
     private String status;
+
+    ConnectionSQLite conn;
+
+    public MateriaModel() {
+        try {
+            this.conn = new ConnectionSQLite();
+        } catch (SQLException ex) {
+            Logger.getLogger(MateriaModel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MateriaModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     /**
      * @return the codigo
      */
-    public int getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 
     /**
      * @param codigo the codigo to set
      */
-    public void setCodigo(int codigo) {
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
@@ -63,14 +80,14 @@ public class MateriaModel {
     /**
      * @return the codigoProfessor
      */
-    public int getCodigoProfessor() {
+    public String getCodigoProfessor() {
         return codigoProfessor;
     }
 
     /**
      * @param codigoProfessor the codigoProfessor to set
      */
-    public void setCodigoProfessor(int codigoProfessor) {
+    public void setCodigoProfessor(String codigoProfessor) {
         this.codigoProfessor = codigoProfessor;
     }
 
@@ -103,8 +120,20 @@ public class MateriaModel {
     }
 
     //==========================================================================
-    public void cadastrarMateria() {
-
+    public void cadastrarMateria() throws SQLException {  
+        try {
+            this.conn.stm = this.conn.conn.createStatement();
+            this.conn.stm.executeUpdate("INSERT INTO materia" + "(nome, cargaHoraria,"
+                    + "codigoProfessor, professorNome, status)"
+                    + " VALUES ("
+                    + getNome() + ","
+                    + getCargaHoraria() + ","
+                    + getCodigoProfessor() + ","
+                    + getProfessorNome() + ","
+                    + getStatus() + ")");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
     public void alterarMateria() {

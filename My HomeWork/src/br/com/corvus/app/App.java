@@ -7,6 +7,7 @@ package br.com.corvus.app;
 
 import br.com.corvus.app.view.MateriaView;
 import br.com.corvus.app.view.MenusView;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 /**
@@ -14,7 +15,7 @@ import java.util.Scanner;
  * @author waleson_melo
  */
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         int opcao = -1;
         
         Scanner sc = new Scanner(System.in);
