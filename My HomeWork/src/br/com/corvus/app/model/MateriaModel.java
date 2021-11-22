@@ -120,17 +120,18 @@ public class MateriaModel {
     }
 
     //==========================================================================
-    public void cadastrarMateria() throws SQLException {  
+    public void cadastrarMateria() throws SQLException {
         try {
             this.conn.stm = this.conn.conn.createStatement();
-            this.conn.stm.executeUpdate("INSERT INTO materia" + "(nome, cargaHoraria,"
-                    + "codigoProfessor, professorNome, status)"
+            this.conn.stm.executeUpdate("INSERT INTO materia ("
+                    + "nome, cargaHoraria, codigoProfessor, professorNome,"
+                    + "status)"
                     + " VALUES ("
-                    + getNome() + ","
-                    + getCargaHoraria() + ","
-                    + getCodigoProfessor() + ","
-                    + getProfessorNome() + ","
-                    + getStatus() + ")");
+                    + "'" + getNome() + "',"
+                    + "'" + getCargaHoraria() + "',"
+                    + "'" + getCodigoProfessor() + "',"
+                    + "'" + getProfessorNome() + "',"
+                    + "'" + getStatus() + "')");
         } catch (Exception e) {
             System.out.println(e);
         }
