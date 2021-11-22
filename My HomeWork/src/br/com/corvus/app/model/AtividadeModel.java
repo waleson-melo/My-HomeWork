@@ -15,7 +15,7 @@ public class AtividadeModel {
     private String nome;
     private int códigoNome;
     private String matériaNome;
-    private date data;
+    private String data;
     private float nota;
     private String status;
     private String tipo;
@@ -52,11 +52,11 @@ public class AtividadeModel {
         this.matériaNome = matériaNome;
     }
     
-    public date getData (){
+    public String getData (){
         return data;
     }
     
-    public void setData ( date data ){
+    public void setData ( String data ){
         this.data = data;
     }
     
