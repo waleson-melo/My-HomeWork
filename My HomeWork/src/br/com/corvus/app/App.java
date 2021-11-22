@@ -24,6 +24,7 @@ public class App {
         OUTER:
         while (true) {
             mv.menuPrincipal();
+            
             opcao = Integer.parseInt(sc.nextLine());
             switch (opcao) {
                 case 0:

@@ -56,7 +56,7 @@ public class AtividadeModel {
         return data;
     }
     
-    public void setData ( date data ){
+    public void setData ( String data ){
         this.data = data;
     }
     
