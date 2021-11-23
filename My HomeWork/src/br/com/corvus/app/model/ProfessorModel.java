@@ -5,17 +5,31 @@
  */
 package br.com.corvus.app.model;
 
+import br.com.corvus.app.conn.ConnectionSQLite;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
- * @author marip
+ * @author mcamb
  */
 public class ProfessorModel extends PessoaModel{
     private int codigo;
     private String email;
 
-    /**
-     * @return the codigo
-     */
+    ConnectionSQLite conn;
+
+    public ProfessorModel() {
+        try {
+            this.conn = new ConnectionSQLite();
+        } catch (SQLException ex) {
+            Logger.getLogger(ProfessorModel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ProfessorModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public int getCodigo() {
         return codigo;
     }
@@ -65,15 +79,26 @@ public class ProfessorModel extends PessoaModel{
         this.telefone = telefone;
     }
     
-    public void cadastrarProfessor(){
+    public void cadastrarProfessor() throws SQLException{
+        try {
+            this.conn.stm = this.conn.conn.createStatement();
+            this.conn.stm.executeUpdate("INSERT INTO Professor ("
+                    + "nome, codigo, cpf,  telefone," + "email)"
+                    + " VALUES ("
+                    + "'" + getNome() + "',"
+                    + "'" + getCodigo() + "',"
+                    + "'" + getCpf() + "',"
+                    + "'" + getTelefone() + "',"
+                    + "'" + getEmail() + "')");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
     
     public void alterarProfessor(){
         
     }
-    public void alteraProfessor(){
-        
-    }
+  
     public void pesquisarProfessor(){
         
     }
