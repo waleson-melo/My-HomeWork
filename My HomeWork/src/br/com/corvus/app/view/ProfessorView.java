@@ -58,7 +58,8 @@ public class ProfessorView {
         }
     } 
     
-     public void cadastrarMateriaView(){
+     public void cadastrarProfessorView(){
+         
         Scanner sc = new Scanner(System.in);
         
         System.out.println("==============================");
@@ -69,11 +70,13 @@ public class ProfessorView {
         System.out.print("CPF: ");
         pm.setCpf(sc.nextLine());
         System.out.print("Codigo : ");
-        pm.setCodigo(sc.nextLine());
+        pm.setCodigo(sc.nextInt());
         System.out.print("E-mail: ");
         pm.setEmail(sc.nextLine());
         System.out.println("Telefone: ");
         pm.setTelefone(sc.nextLine());
+        
+        pm.cadastrarProfessor();
     }
      
      public void listarProfessor(){
