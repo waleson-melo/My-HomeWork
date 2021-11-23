@@ -49,5 +49,26 @@ public class InstituicaoView {
             }
         }
     } 
-   
+    public void cadastrarInstituicaoView() throws SQLException{
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("==============================");
+        System.out.println("==========INSTITUIÇÃO=============");
+        System.out.println("==============================");
+        System.out.print("Nome: ");
+        im.setNome(sc.nextLine());
+        System.out.print("Código: ");
+        im.setCodigo(sc.nextInt());
+        System.out.println("Observações: ");
+        im.setObservacoes(sc.nextLine());
+      
+        im.cadastrarInstituicao();
+    }
+    
+    public void listarInstituicao(){
+        System.out.println("Nome: " + im.getNome());
+        System.out.println("Código: " + im.getCodigo());
+        System.out.println("Observações: " + im.getObservacoes());
+    }
+     
 }
