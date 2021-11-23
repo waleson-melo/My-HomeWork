@@ -55,6 +55,10 @@ public class ProfessorModel extends PessoaModel{
         this.email = email;
     }
     
+    /**
+     *
+     * @throws SQLException
+     */
     public void cadastrarProfessor() throws SQLException{
         try {
             this.conn.stm = this.conn.conn.createStatement();
