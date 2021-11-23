@@ -45,7 +45,7 @@ public class App {
                     intv.menuInstituicaoView();
                     break; 
                 case 4:
-                    
+                    pm.menuProfessorView();
                 case 5:
                     alv.menuAlunoView();
                 default:

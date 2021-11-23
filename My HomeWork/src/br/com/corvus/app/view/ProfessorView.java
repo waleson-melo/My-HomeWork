@@ -4,8 +4,9 @@
  */
 package br.com.corvus.app.view;
 
-import br.com.corvus.app.model.ProfessorModel;
+import java.sql.SQLException;
 import java.util.Scanner;
+import br.com.corvus.app.model.ProfessorModel;
 
 /**
  *
@@ -80,10 +81,10 @@ public class ProfessorView {
     }
      
      public void listarProfessor(){
-         Sysout.out.println("Nome: " + pm.getNome());
-         Sysout.out.println("CPF: " + pm.getCpf());
-         Sysout.out.println("Codigo: " + pm.getCodigo());
-         Sysout.out.println("E-mail: " + pm.getEmail());
-         Sysout.out.println("Telefone: " + pm.getTelefone());
+         System.out.println("Nome: " + pm.getNome());
+         System.out.println("CPF: " + pm.getCpf());
+         System.out.println("Codigo: " + pm.getCodigo());
+         System.out.println("E-mail: " + pm.getEmail());
+         System.out.println("Telefone: " + pm.getTelefone());
      }
 }
