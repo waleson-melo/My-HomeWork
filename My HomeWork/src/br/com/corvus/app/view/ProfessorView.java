@@ -59,7 +59,7 @@ public class ProfessorView {
         }
     } 
     
-     public void cadastrarProfessorView(){
+     public void cadastrarProfessorView() throws SQLException{
          
         Scanner sc = new Scanner(System.in);
         
