@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package br.com.corvus.app.view;
-
 import java.sql.SQLException;
 import java.util.Scanner;
 import br.com.corvus.app.model.ProfessorModel;
@@ -18,7 +17,7 @@ public class ProfessorView {
     
     ProfessorModel pm = new ProfessorModel();
     
-    public void menuProfessorView(){
+    public void menuProfessorView() throws SQLException{
         int opcao = -1;
         
         OUTER:
@@ -59,7 +58,7 @@ public class ProfessorView {
         }
     } 
     
-     public void cadastrarProfessorView(){
+     public void cadastrarProfessorView() throws SQLException{
          
         Scanner sc = new Scanner(System.in);
         
