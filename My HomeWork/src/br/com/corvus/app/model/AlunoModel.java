@@ -50,8 +50,7 @@ public class AlunoModel extends PessoaModel{
         try {
             this.conn.stm = this.conn.conn.createStatement();
             this.conn.stm.executeUpdate("INSERT INTO aluno ("
-                    + "nome, matricula, cpf, telefone, email,"
-                    + "status)"
+                    + "nome, matricula, cpf,  telefone," + "email)"
                     + " VALUES ("
                     + "'" + getNome() + "',"
                     + "'" + getMatricula() + "',"
@@ -61,6 +60,10 @@ public class AlunoModel extends PessoaModel{
         } catch (Exception e) {
             System.out.println(e);
         }
+    }
+    
+    public void listarAluno(){
+
     }
     
 }
