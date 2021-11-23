@@ -9,7 +9,7 @@ package br.com.corvus.app.model;
  *
  * @author marip
  */
-public class ProfessorModel {
+public class ProfessorModel extends PessoaModel{
     private int codigo;
     private String email;
 
@@ -39,6 +39,30 @@ public class ProfessorModel {
      */
     public void setEmail(String email) {
         this.email = email;
+    }
+    
+    public String getNome(){
+        return nome;
+    }
+    
+    public void setNome(String nome){
+        this.nome = nome;
+    }
+    
+    public String getCpf(){
+        return cpf;
+    }
+    
+    public void getCpf(String cpf){
+        this.cpf = cpf;
+    }
+    
+    public String getTelefone(){
+        return telefone;
+    }
+    
+    public void setTelefone(String telefone){
+        this.telefone = telefone;
     }
     
     public void cadastrarProfessor(){
