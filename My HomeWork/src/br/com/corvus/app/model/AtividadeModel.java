@@ -152,6 +152,32 @@ public class AtividadeModel {
         }
     }
     
+    public void pesquisarAtividade() {
+        ResultSet rs;
+        try {
+            this.conn.stm = this.conn.conn.createStatement();
+            rs = this.conn.stm.executeQuery("SELECT * FROM atividade "
+                    + "WHERE nome = '" + getNome() + "'");
+
+            if (!rs.next()) {
+                System.out.println("Atividade não encontrada.");
+            } else {
+                System.out.print("|Codigo: " + rs.getString("codigo") + ", ");
+                System.out.print("Nome: " + rs.getString("nome") + ", ");
+                System.out.print("Codigo Materia: " + rs.getString("codigoMateria") + ", ");
+                System.out.print("Materia: " + rs.getString("nomeMateria") + ", ");
+                System.out.print("Data: " + rs.getString("data") + ", ");
+                System.out.print("Nota: " + rs.getFloat("nota") + ", ");
+                System.out.print("Status: " + rs.getString("status") + ", ");
+                System.out.print("Tipo: " + rs.getString("tipo") + "");
+                System.out.println("");
+            }
+
+        } catch (Exception e) {
+            System.out.println("erro ao pesquisar atividade: " + e);
+        }
+    }
+    
     public void listarAtividades() {
         ResultSet rs;
         try {

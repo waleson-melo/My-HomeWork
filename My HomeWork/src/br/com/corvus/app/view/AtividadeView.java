@@ -45,6 +45,7 @@ public class AtividadeView {
                     apagarAtividade();
                     break;
                 case 4:
+                    pesquisarAtividade();
                     break;
                 case 5:
                     listarAtividades();
@@ -120,6 +121,17 @@ public class AtividadeView {
         atm.apagarAtividade();
     }
 
+    public void pesquisarAtividade() {
+        System.out.println("==============================");
+        System.out.println("=========ATIVIDADE============");
+        System.out.println("==============================");
+        
+        System.out.print("Nome da atividade: ");
+        atm.setNome(sc.nextLine());
+        
+        atm.pesquisarAtividade();
+    }
+    
     public void listarAtividades() {
         System.out.println("==============================");
         System.out.println("=========ATIVIDADES===========");
