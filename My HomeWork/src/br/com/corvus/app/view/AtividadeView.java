@@ -39,6 +39,7 @@ public class AtividadeView {
                     cadastrarAtividade();
                     break;
                 case 2:
+                    alterarAtividade();
                     break;
                 case 3:
                     apagarAtividade();
@@ -76,6 +77,34 @@ public class AtividadeView {
         atm.setTipo(sc.nextLine());
 
         atm.cadastrarAtividade();
+    }
+    
+    public void alterarAtividade() {
+        System.out.println("==============================");
+        System.out.println("=========ATIVIDADE============");
+        System.out.println("==============================");
+        
+        atm.listarAtividades();
+        
+        System.out.print("Codigo para editar as informações: ");
+        atm.setCodigo(sc.nextLine());
+        
+        System.out.print("Nome: ");
+        atm.setNome(sc.nextLine());
+        System.out.print("Codigo Materia: ");
+        atm.setCodigoMateria(sc.nextLine());
+        System.out.print("Materia: ");
+        atm.setNomeMateria(sc.nextLine());
+        System.out.print("Data: ");
+        atm.setData(sc.nextLine());
+        System.out.print("Nota: ");
+        atm.setNota(Float.parseFloat(sc.nextLine()));
+        System.out.print("Status: ");
+        atm.setStatus(sc.nextLine());
+        System.out.print("Tipo: ");
+        atm.setTipo(sc.nextLine());
+        
+        atm.alterarAtividade();
     }
     
     public void apagarAtividade() {

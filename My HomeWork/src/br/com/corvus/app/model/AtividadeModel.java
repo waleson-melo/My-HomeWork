@@ -116,6 +116,26 @@ public class AtividadeModel {
         }
     }
     
+    public void alterarAtividade() {
+        try {
+            this.conn.stm = this.conn.conn.createStatement();
+
+            // Alterando
+            this.conn.stm.executeUpdate("UPDATE atividade SET "
+                    + "nome = '" + getNome() + "',"
+                    + "codigoMateria = '" + getCodigoMateria()+ "',"
+                    + "nomeMateria = '" + getNomeMateria()+ "',"
+                    + "data = '" + getData()+ "',"
+                    + "nota= '" + getNota()+ "',"
+                    + "status = '" + getStatus()+ "',"
+                    + "tipo = '" + getTipo()+ "'"
+                    + "WHERE codigo = '" + getCodigo() + "'");
+
+        } catch (Exception e) {
+            System.out.println("erro ao alterar atividade: " + e);
+        }
+    }
+    
     public void apagarAtividade() {
         try {
             this.conn.stm = this.conn.conn.createStatement();
