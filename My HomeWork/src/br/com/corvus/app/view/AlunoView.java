@@ -60,7 +60,7 @@ public class AlunoView {
         am.setNome(sc.nextLine());
         System.out.print("Cpf: ");
         am.setCpf(sc.nextLine());
-        System.out.println("Telefone");
+        System.out.println("Telefone: ");
         am.setTelefone(sc.nextLine());
         System.out.print("Email: ");
         am.setEmail(sc.nextLine());

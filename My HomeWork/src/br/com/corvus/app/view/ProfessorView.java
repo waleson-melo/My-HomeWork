@@ -3,9 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package br.com.corvus.app.view;
-
-import br.com.corvus.app.model.ProfessorModel;
+import java.sql.SQLException;
 import java.util.Scanner;
+import br.com.corvus.app.model.ProfessorModel;
 
 /**
  *
@@ -17,7 +17,7 @@ public class ProfessorView {
     
     ProfessorModel pm = new ProfessorModel();
     
-    public void menuProfessorView(){
+    public void menuProfessorView() throws SQLException{
         int opcao = -1;
         
         OUTER:
@@ -58,7 +58,8 @@ public class ProfessorView {
         }
     } 
     
-     public void cadastrarMateriaView(){
+     public void cadastrarProfessorView() throws SQLException{
+         
         Scanner sc = new Scanner(System.in);
         
         System.out.println("==============================");
@@ -69,18 +70,20 @@ public class ProfessorView {
         System.out.print("CPF: ");
         pm.setCpf(sc.nextLine());
         System.out.print("Codigo : ");
-        pm.setCodigo(sc.nextLine());
+        pm.setCodigo(sc.nextInt());
         System.out.print("E-mail: ");
         pm.setEmail(sc.nextLine());
         System.out.println("Telefone: ");
         pm.setTelefone(sc.nextLine());
+        
+        pm.cadastrarProfessor();
     }
      
      public void listarProfessor(){
-         Sysout.out.println("Nome: " + pm.getNome);
-         Sysout.out.println("CPF: " + pm.getCpf);
-         Sysout.out.println("Codigo: " + pm.getCodigo);
-         Sysout.out.println("E-mail: " + pm.getEmail);
-         Sysout.out.println("Telefone: " + pm.getTelefone);
+         System.out.println("Nome: " + pm.getNome());
+         System.out.println("CPF: " + pm.getCpf());
+         System.out.println("Codigo: " + pm.getCodigo());
+         System.out.println("E-mail: " + pm.getEmail());
+         System.out.println("Telefone: " + pm.getTelefone());
      }
 }
