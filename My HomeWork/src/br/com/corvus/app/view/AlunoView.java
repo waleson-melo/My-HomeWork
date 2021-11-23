@@ -7,7 +7,7 @@ package br.com.corvus.app.view;
 
 /**
  *
- * @author waleson_melo
+ * @author marip
  */
 public class AlunoView {
     
