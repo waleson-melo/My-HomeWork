@@ -157,7 +157,29 @@ public class MateriaModel {
     }
 
     public void pesquisarMateria() {
+        ResultSet rs;
+        try {
+            this.conn.stm = this.conn.conn.createStatement();
+            rs = this.conn.stm.executeQuery("SELECT * FROM materia "
+                    + "WHERE nome = '" + getNome() + "'");
 
+            if (!rs.next()) {
+                System.out.println("Materia não encontrada.");
+            } else {
+                while (rs.next()) {
+                    System.out.print("|Codigo: " + rs.getString("codigo") + ", ");
+                    System.out.print("Nome: " + rs.getString("nome") + ", ");
+                    System.out.print("Carga Horaria: " + rs.getString("cargaHoraria") + ", ");
+                    System.out.print("Codigo Professor: " + rs.getString("codigoProfessor") + ", ");
+                    System.out.print("Professor: " + rs.getString("professorNome") + ", ");
+                    System.out.print("Status: " + rs.getString("status") + ", ");
+                    System.out.println("");
+                }
+            }
+
+        } catch (Exception e) {
+            System.out.println("erro ao listar materias: " + e);
+        }
     }
 
     public void apagarMateria() {

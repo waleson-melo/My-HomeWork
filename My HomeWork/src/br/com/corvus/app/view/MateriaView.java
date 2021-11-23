@@ -50,6 +50,7 @@ public class MateriaView {
                 case 3:
                     break;
                 case 4:
+                    pesquisarMateria();
                     break;
                 case 5:
                     listarMaterias();
@@ -93,12 +94,12 @@ public class MateriaView {
         System.out.println("==============================");
         System.out.println("==========MATERIA=============");
         System.out.println("==============================");
-        
+
         mm.listarMaterias();
-        
+
         System.out.print("Codigo para editar as informações: ");
         mm.setCodigo(sc.nextLine());
-        
+
         System.out.print("Nome: ");
         mm.setNome(sc.nextLine());
         System.out.print("Carga Horaria: ");
@@ -109,7 +110,18 @@ public class MateriaView {
         mm.setProfessorNome(sc.nextLine());
         System.out.print("Status: ");
         mm.setStatus(sc.nextLine());
-        
+
         mm.alterarMateria();
+    }
+
+    public void pesquisarMateria() {
+        System.out.println("==============================");
+        System.out.println("==========MATERIA=============");
+        System.out.println("==============================");
+
+        System.out.print("Nome da materia: ");
+        mm.setNome(sc.nextLine());
+
+        mm.pesquisarMateria();
     }
 }
