@@ -138,7 +138,22 @@ public class MateriaModel {
     }
 
     public void alterarMateria() {
+        ResultSet rs;
+        try {
+            this.conn.stm = this.conn.conn.createStatement();
 
+            // Alterando
+            this.conn.stm.executeUpdate("UPDATE materia SET "
+                    + "nome = '" + getNome() + "',"
+                    + "cargaHoraria = '" + getCargaHoraria() + "',"
+                    + "codigoProfessor = '" + getCodigoProfessor() + "',"
+                    + "professorNome = '" + getProfessorNome() + "',"
+                    + "status = '" + getStatus() + "'"
+                    + "WHERE codigo = '" + getCodigo() + "'");
+
+        } catch (Exception e) {
+            System.out.println("erro ao alterar materia: " + e);
+        }
     }
 
     public void pesquisarMateria() {
@@ -154,7 +169,7 @@ public class MateriaModel {
         try {
             this.conn.stm = this.conn.conn.createStatement();
             rs = this.conn.stm.executeQuery("SELECT * FROM materia ORDER BY nome");
-            
+
             while (rs.next()) {
                 System.out.print("|Codigo: " + rs.getString("codigo") + ", ");
                 System.out.print("Nome: " + rs.getString("nome") + ", ");
@@ -164,10 +179,10 @@ public class MateriaModel {
                 System.out.print("Status: " + rs.getString("status") + ", ");
                 System.out.println("");
             }
-            
+
         } catch (Exception e) {
             System.out.println("erro ao listar materias: " + e);
         }
-        
+
     }
 }

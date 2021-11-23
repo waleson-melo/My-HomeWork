@@ -14,15 +14,16 @@ import java.util.Scanner;
  * @author waleson_melo
  */
 public class MateriaView {
+
     Scanner sc = new Scanner(System.in);
-    
+
     MateriaModel mm = new MateriaModel();
-    
-    public void menuMateriaView() throws SQLException{
+
+    public void menuMateriaView() throws SQLException {
         int opcao = -1;
-        
+
         OUTER:
-        while(true){
+        while (true) {
             System.out.println("===============================");
             System.out.println("=========|  Materia  |=========");
             System.out.println("===============================");
@@ -36,7 +37,7 @@ public class MateriaView {
 
             System.out.println("Opção: ");
             opcao = Integer.parseInt(sc.nextLine());
-            
+
             switch (opcao) {
                 case 0:
                     break OUTER;
@@ -44,6 +45,7 @@ public class MateriaView {
                     cadastrarMateriaView();
                     break;
                 case 2:
+                    alterarMateria();
                     break;
                 case 3:
                     break;
@@ -57,30 +59,57 @@ public class MateriaView {
                     break;
             }
         }
-    } 
-    
-    public void cadastrarMateriaView() throws SQLException{
+    }
+
+    public void cadastrarMateriaView() throws SQLException {
         Scanner sc = new Scanner(System.in);
-        
+
         System.out.println("==============================");
         System.out.println("==========MATERIA=============");
         System.out.println("==============================");
         System.out.print("Nome: ");
-        
+
         mm.setNome(sc.nextLine());
         System.out.print("Carga Horaria: ");
         mm.setCargaHoraria(sc.nextLine());
-        System.out.println("Codigo Professor");
+        System.out.print("Codigo Professor: ");
+        mm.setCodigoProfessor(sc.nextLine());
+        System.out.print("Nome Professor: ");
+        mm.setProfessorNome(sc.nextLine());
+        System.out.print("Status: ");
+        mm.setStatus(sc.nextLine());
+
+        mm.cadastrarMateria();
+    }
+
+    public void listarMaterias() throws SQLException {
+        System.out.println("==============================");
+        System.out.println("==========MATERIAS============");
+        System.out.println("==============================");
+        mm.listarMaterias();
+    }
+
+    public void alterarMateria() throws SQLException {
+        System.out.println("==============================");
+        System.out.println("==========MATERIA=============");
+        System.out.println("==============================");
+        
+        mm.listarMaterias();
+        
+        System.out.print("Codigo para editar as informações: ");
+        mm.setCodigo(sc.nextLine());
+        
+        System.out.print("Nome: ");
+        mm.setNome(sc.nextLine());
+        System.out.print("Carga Horaria: ");
+        mm.setCargaHoraria(sc.nextLine());
+        System.out.print("Codigo Professor: ");
         mm.setCodigoProfessor(sc.nextLine());
         System.out.print("Nome Professor: ");
         mm.setProfessorNome(sc.nextLine());
         System.out.print("Status: ");
         mm.setStatus(sc.nextLine());
         
-        mm.cadastrarMateria();
-    }
-    
-    public void listarMaterias() throws SQLException{
-        mm.listarMaterias();
+        mm.alterarMateria();
     }
 }
