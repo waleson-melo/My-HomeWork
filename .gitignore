@@ -23,3 +23,9 @@
 hs_err_pid*
 /My HomeWork/nbproject/private/
 /My HomeWork/build/
+dbsistema.db
+*.db-journal
+*.db
+*.db
+*.db
+dbsistema.db
