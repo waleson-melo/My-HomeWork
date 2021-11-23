@@ -6,6 +6,7 @@
 package br.com.corvus.app;
 
 import br.com.corvus.app.view.MateriaView;
+import br.com.corvus.app.view.AlunoView;
 import br.com.corvus.app.view.MenusView;
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -21,6 +22,7 @@ public class App {
         Scanner sc = new Scanner(System.in);
         MenusView mv = new MenusView();
         MateriaView matv = new MateriaView();
+        AlunoView alv = new AlunoView();
         
         OUTER:
         while (true) {
@@ -35,6 +37,8 @@ public class App {
                 case 2:
                     matv.menuMateriaView();
                     break;
+                case 3:
+                    alv.menuAlunoView();
                 default:
                     break;
             }
