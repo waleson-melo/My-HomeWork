@@ -80,11 +80,7 @@ public class MateriaView {
         mm.cadastrarMateria();
     }
     
-    public void listarMaterias(){
-        System.out.println("Nome: " + mm.getNome());
-        System.out.println("Carga Horaria: " + mm.getCargaHoraria());
-        System.out.println("Nome Professor: " + mm.getProfessorNome());
-        System.out.println("Status: " + mm.getStatus());
-        
+    public void listarMaterias() throws SQLException{
+        mm.listarMaterias();
     }
 }
