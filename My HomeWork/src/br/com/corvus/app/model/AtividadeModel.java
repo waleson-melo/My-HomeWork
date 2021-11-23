@@ -5,27 +5,46 @@
  */
 package br.com.corvus.app.model;
 
+import br.com.corvus.app.conn.ConnectionSQLite;
+
 /**
  *
  * @author caroi
  */
 public class AtividadeModel {
     
-    private int código;
+    private String codigo;
     private String nome;
-    private int códigoNome;
-    private String matériaNome;
+    private String codigoMateria;
+    private String nomeMateria;
     private String data;
     private float nota;
     private String status;
     private String tipo;
     
-    public int getCódigo(){
-        return código;
+    ConnectionSQLite conn;
+    
+    public AtividadeModel(){
+        try {
+            this.conn = new ConnectionSQLite();
+        } catch (Exception e) {
+        }
+    }
+
+    public float getNota() {
+        return nota;
+    }
+
+    public void setNota(float nota) {
+        this.nota = nota;
     }
     
-    public void setCódigo( int código ){
-        this.código = código;
+    public String getCodigo(){
+        return codigo;
+    }
+    
+    public void setCodigo( String codigo ){
+        this.codigo = codigo;
     }
     
     public String getNome(){
@@ -36,20 +55,20 @@ public class AtividadeModel {
         this.nome = nome;
     }
     
-    public int getCódigoNome (){
-        return códigoNome;
+    public String getCodigoMateria (){
+        return codigoMateria;
     }
     
-    public void setCódigoNome ( int códigoNome ){
-        this.códigoNome = códigoNome;
+    public void setCodigoMateria ( String codigoMateria ){
+        this.codigoMateria = codigoMateria;
     }
     
-    public String getMatériaNome (){
-        return matériaNome;
+    public String getNomeMateria (){
+        return nomeMateria;
     } 
     
-    public void setMatériaNome ( String matériaNome ){
-        this.matériaNome = matériaNome;
+    public void setNomeMateria ( String nomeMateria ){
+        this.nomeMateria = nomeMateria;
     }
     
     public String getData (){
@@ -74,6 +93,26 @@ public class AtividadeModel {
     
     public void setTipo ( String tipo ){
         this.tipo = tipo;
+    }
+    
+    //==========================================================================
+    public void cadastrarAtividade() {
+        try {
+            this.conn.stm = this.conn.conn.createStatement();
+            this.conn.stm.executeUpdate("INSERT INTO atividade ("
+                    + "nome, codigoMateria, nomeMateria, data,"
+                    + "nota, status, tipo)"
+                    + " VALUES ("
+                    + "'" + getNome() + "',"
+                    + "'" + getCodigoMateria()+ "',"
+                    + "'" + getNomeMateria()+ "',"
+                    + "'" + getData()+ "',"
+                    + "'" + getNota()+ "',"
+                    + "'" + getStatus()+ "',"
+                    + "'" + getTipo()+ "')");
+        } catch (Exception e) {
+            System.out.println("erro ao inserir atividade: " + e);
+        }
     }
    
 }
