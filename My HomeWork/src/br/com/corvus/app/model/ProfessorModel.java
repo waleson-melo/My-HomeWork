@@ -6,6 +6,7 @@
 package br.com.corvus.app.model;
 
 import br.com.corvus.app.conn.ConnectionSQLite;
+import java.sql.*;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,7 +16,7 @@ import java.util.logging.Logger;
  * @author mcamb
  */
 public class ProfessorModel extends PessoaModel{
-    private int codigo;
+    private String codigo;
     private String email;
 
     ConnectionSQLite conn;
@@ -30,14 +31,14 @@ public class ProfessorModel extends PessoaModel{
         }
     }
     
-    public int getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 
     /**
      * @param codigo the codigo to set
      */
-    public void setCodigo(int codigo) {
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
   
@@ -59,6 +60,7 @@ public class ProfessorModel extends PessoaModel{
      *
      * @throws SQLException
      */
+    //==========================================================================
     public void cadastrarProfessor() throws SQLException{
         try {
             this.conn.stm = this.conn.conn.createStatement();
@@ -76,17 +78,78 @@ public class ProfessorModel extends PessoaModel{
     }
     
     public void alterarProfessor(){
-        
+        ResultSet rs;
+        try {
+            this.conn.stm = this.conn.conn.createStatement();
+
+            // Alterando
+            this.conn.stm.executeUpdate("UPDATE Professor SET "
+                    + "nome = '" + getNome() + "',"
+                    + "cpf = '" + getCpf() + "',"
+                    + "e-mail = '" + getEmail() + "',"
+                    + "telefone = '" + getTelefone() + "'"
+                    + "WHERE codigo = '" + getCodigo() + "'");
+
+        } catch (Exception e) {
+            System.out.println("erro ao alterar Professor: " + e);
+        }
     }
   
     public void pesquisarProfessor(){
-        
+        ResultSet rs;
+        try {
+            this.conn.stm = this.conn.conn.createStatement();
+            rs = this.conn.stm.executeQuery("SELECT * FROM professor "
+                    + "WHERE nome = '" + getNome() + "'");
+
+            if (!rs.next()) {
+                System.out.println("Professor não encontrada.");
+            } else {
+                System.out.print("|Codigo: " + rs.getString("codigo") + ", ");
+                System.out.print("Nome: " + rs.getString("nome") + ", ");
+                System.out.print("CPF: " + rs.getString("cpf") + ", ");
+                System.out.print("E-mail: " + rs.getString("email") + ", ");
+                System.out.print("Telefone: " + rs.getString("telefone") + ", ");
+                System.out.println("");
+            }
+
+        } catch (Exception e) {
+            System.out.println("erro ao listar professor: " + e);
+        }
     }
     public void apagarProfessor(){
-        
+        try {
+            this.conn.stm = this.conn.conn.createStatement();
+            int x = this.conn.stm.executeUpdate("DELETE FROM professor "
+                    + "WHERE codigo = '" + getCodigo() + "'");
+
+            if (x == 1) {
+                System.out.println("Professor apagado com sucesso");
+            } else {
+                System.out.println("Professor nao apagado, verifique o codigo do professor");
+            }
+        } catch (Exception e) {
+            System.out.println("erro ao listar professor: " + e);
+        }
     }
     
     public void listarProfessor(){
-        
+        ResultSet rs;
+        try {
+            this.conn.stm = this.conn.conn.createStatement();
+            rs = this.conn.stm.executeQuery("SELECT * FROM materia ORDER BY nome");
+
+            while (rs.next()) {
+                System.out.print("Nome: " + rs.getString("nome") + ", ");
+                System.out.print("CPF: " + rs.getString("cpf") + ", ");
+                System.out.print("Codigo: " + rs.getString("codigo") + ", ");
+                System.out.print("Professor: " + rs.getString("email") + ", ");
+                System.out.print("Telefone: " + rs.getString("telefone") + ", ");
+                System.out.println("");
+            }
+
+        } catch (Exception e) {
+            System.out.println("erro ao listar professore: " + e);
+        }
     }
 }
