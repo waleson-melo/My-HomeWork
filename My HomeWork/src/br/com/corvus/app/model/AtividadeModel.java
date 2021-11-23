@@ -6,6 +6,7 @@
 package br.com.corvus.app.model;
 
 import br.com.corvus.app.conn.ConnectionSQLite;
+import java.sql.ResultSet;
 
 /**
  *
@@ -112,6 +113,29 @@ public class AtividadeModel {
                     + "'" + getTipo()+ "')");
         } catch (Exception e) {
             System.out.println("erro ao inserir atividade: " + e);
+        }
+    }
+    
+    public void listarAtividades() {
+        ResultSet rs;
+        try {
+            this.conn.stm = this.conn.conn.createStatement();
+            rs = this.conn.stm.executeQuery("SELECT * FROM atividade ORDER BY data");
+
+            while (rs.next()) {
+                System.out.print("|Codigo: " + rs.getString("codigo") + ", ");
+                System.out.print("Nome: " + rs.getString("nome") + ", ");
+                System.out.print("Codigo Materia: " + rs.getString("codigoMateria") + ", ");
+                System.out.print("Materia: " + rs.getString("nomeMateria") + ", ");
+                System.out.print("Data: " + rs.getString("data") + ", ");
+                System.out.print("Nota: " + rs.getFloat("nota") + ", ");
+                System.out.print("Status: " + rs.getString("status") + ", ");
+                System.out.print("Tipo: " + rs.getString("tipo") + ", ");
+                System.out.println("");
+            }
+
+        } catch (Exception e) {
+            System.out.println("erro ao listar materias: " + e);
         }
     }
    

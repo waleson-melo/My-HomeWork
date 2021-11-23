@@ -45,6 +45,7 @@ public class AtividadeView {
                 case 4:
                     break;
                 case 5:
+                    listarAtividades();
                     break;
                 default:
                     System.out.println("Opção invalida.");
@@ -57,7 +58,7 @@ public class AtividadeView {
         System.out.println("==============================");
         System.out.println("=========ATIVIDADE============");
         System.out.println("==============================");
-        
+
         System.out.print("Nome: ");
         atm.setNome(sc.nextLine());
         System.out.print("Codigo Materia: ");
@@ -72,7 +73,15 @@ public class AtividadeView {
         atm.setStatus(sc.nextLine());
         System.out.print("Tipo: ");
         atm.setTipo(sc.nextLine());
-        
+
         atm.cadastrarAtividade();
+    }
+
+    public void listarAtividades() {
+        System.out.println("==============================");
+        System.out.println("=========ATIVIDADES===========");
+        System.out.println("==============================");
+        
+        atm.listarAtividades();
     }
 }
