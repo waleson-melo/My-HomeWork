@@ -116,6 +116,22 @@ public class AtividadeModel {
         }
     }
     
+    public void apagarAtividade() {
+        try {
+            this.conn.stm = this.conn.conn.createStatement();
+            int x = this.conn.stm.executeUpdate("DELETE FROM atividade "
+                    + "WHERE codigo = '" + getCodigo() + "'");
+
+            if (x == 1) {
+                System.out.println("atividade apagada com sucesso");
+            } else {
+                System.out.println("atividade nao apagada, verifique o codigo da atividade");
+            }
+        } catch (Exception e) {
+            System.out.println("erro ao apagar atividade: " + e);
+        }
+    }
+    
     public void listarAtividades() {
         ResultSet rs;
         try {

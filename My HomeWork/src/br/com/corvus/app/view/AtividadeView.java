@@ -41,6 +41,7 @@ public class AtividadeView {
                 case 2:
                     break;
                 case 3:
+                    apagarAtividade();
                     break;
                 case 4:
                     break;
@@ -75,6 +76,19 @@ public class AtividadeView {
         atm.setTipo(sc.nextLine());
 
         atm.cadastrarAtividade();
+    }
+    
+    public void apagarAtividade() {
+        System.out.println("==============================");
+        System.out.println("=========ATIVIDADE============");
+        System.out.println("==============================");
+        
+        atm.listarAtividades();
+        
+        System.out.print("Codigo da atividade para apagar: ");
+        atm.setCodigo(sc.nextLine());
+        
+        atm.apagarAtividade();
     }
 
     public void listarAtividades() {
