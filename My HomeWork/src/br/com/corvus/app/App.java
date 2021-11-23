@@ -7,10 +7,10 @@ package br.com.corvus.app;
 
 import br.com.corvus.app.view.MateriaView;
 import br.com.corvus.app.view.AlunoView;
-import br.com.corvus.app.view.AtividadeView;
 import br.com.corvus.app.view.MenusView;
 import java.sql.SQLException;
 import java.util.Scanner;
+import br.com.corvus.app.view.AtividadeView;
 
 /**
  *
