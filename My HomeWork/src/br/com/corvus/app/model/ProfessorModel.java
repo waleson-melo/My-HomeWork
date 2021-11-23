@@ -149,7 +149,7 @@ public class ProfessorModel extends PessoaModel{
             }
 
         } catch (Exception e) {
-            System.out.println("erro ao listar professore: " + e);
+            System.out.println("erro ao listar professor: " + e);
         }
     }
 }
