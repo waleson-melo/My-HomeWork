@@ -80,10 +80,10 @@ public class ProfessorView {
     }
      
      public void listarProfessor(){
-         Sysout.out.println("Nome: " + pm.getNome);
-         Sysout.out.println("CPF: " + pm.getCpf);
-         Sysout.out.println("Codigo: " + pm.getCodigo);
-         Sysout.out.println("E-mail: " + pm.getEmail);
-         Sysout.out.println("Telefone: " + pm.getTelefone);
+         Sysout.out.println("Nome: " + pm.getNome());
+         Sysout.out.println("CPF: " + pm.getCpf());
+         Sysout.out.println("Codigo: " + pm.getCodigo());
+         Sysout.out.println("E-mail: " + pm.getEmail());
+         Sysout.out.println("Telefone: " + pm.getTelefone());
      }
 }
