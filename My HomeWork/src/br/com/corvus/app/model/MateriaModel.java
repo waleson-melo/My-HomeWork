@@ -166,15 +166,13 @@ public class MateriaModel {
             if (!rs.next()) {
                 System.out.println("Materia não encontrada.");
             } else {
-                while (rs.next()) {
-                    System.out.print("|Codigo: " + rs.getString("codigo") + ", ");
-                    System.out.print("Nome: " + rs.getString("nome") + ", ");
-                    System.out.print("Carga Horaria: " + rs.getString("cargaHoraria") + ", ");
-                    System.out.print("Codigo Professor: " + rs.getString("codigoProfessor") + ", ");
-                    System.out.print("Professor: " + rs.getString("professorNome") + ", ");
-                    System.out.print("Status: " + rs.getString("status") + ", ");
-                    System.out.println("");
-                }
+                System.out.print("|Codigo: " + rs.getString("codigo") + ", ");
+                System.out.print("Nome: " + rs.getString("nome") + ", ");
+                System.out.print("Carga Horaria: " + rs.getString("cargaHoraria") + ", ");
+                System.out.print("Codigo Professor: " + rs.getString("codigoProfessor") + ", ");
+                System.out.print("Professor: " + rs.getString("professorNome") + ", ");
+                System.out.print("Status: " + rs.getString("status") + ", ");
+                System.out.println("");
             }
 
         } catch (Exception e) {
