@@ -183,7 +183,19 @@ public class MateriaModel {
     }
 
     public void apagarMateria() {
+        try {
+            this.conn.stm = this.conn.conn.createStatement();
+            int x = this.conn.stm.executeUpdate("DELETE FROM materia "
+                    + "WHERE codigo = '" + getCodigo() + "'");
 
+            if (x == 1) {
+                System.out.println("materia apagada com sucesso");
+            } else {
+                System.out.println("materia nao apagada, verifique o codigo da materia");
+            }
+        } catch (Exception e) {
+            System.out.println("erro ao listar materias: " + e);
+        }
     }
 
     public void listarMaterias() throws SQLException {

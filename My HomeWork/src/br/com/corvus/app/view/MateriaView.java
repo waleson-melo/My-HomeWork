@@ -48,6 +48,7 @@ public class MateriaView {
                     alterarMateria();
                     break;
                 case 3:
+                    apagarMateria();
                     break;
                 case 4:
                     pesquisarMateria();
@@ -123,5 +124,18 @@ public class MateriaView {
         mm.setNome(sc.nextLine());
 
         mm.pesquisarMateria();
+    }
+
+    public void apagarMateria() throws SQLException {
+        System.out.println("==============================");
+        System.out.println("==========MATERIA=============");
+        System.out.println("==============================");
+        
+        mm.listarMaterias();
+        
+        System.out.print("Codigo da materia para apagar: ");
+        mm.setCodigo(sc.nextLine());
+        
+        mm.apagarMateria();
     }
 }
