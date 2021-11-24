@@ -5,6 +5,7 @@
  */
 package br.com.corvus.app;
 
+import br.com.corvus.app.conn.ConnectionSQLite;
 import br.com.corvus.app.view.MateriaView;
 import br.com.corvus.app.view.AlunoView;
 import br.com.corvus.app.view.InstituicaoView;
@@ -19,8 +20,11 @@ import br.com.corvus.app.view.AtividadeView;
  * @author waleson_melo
  */
 public class App {
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
         int opcao = -1;
+        
+        ConnectionSQLite conn = new ConnectionSQLite();
+        conn.initDB();
         
         Scanner sc = new Scanner(System.in);
         AtividadeView atv = new AtividadeView();
