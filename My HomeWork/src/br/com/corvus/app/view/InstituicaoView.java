@@ -26,8 +26,12 @@ public class InstituicaoView {
             System.out.println("===============================");
 
             System.out.println("(1) Cadastrar Instituição ");
-            System.out.println("(2) Alterar Dados (Instituição )");
-            System.out.println("(3) Listar Instituição Cadastradas");
+            System.out.println("(2) Alterar Dados (Instituição)");
+            System.out.println("(3) Apagar Instituição");
+            System.out.println("(4) Pesquisar Instituição");
+            System.out.println("(5) Listar Instituição Cadastradas");
+            System.out.println("(0) Voltar");
+            
 
             System.out.println("Opção: ");
             opcao = Integer.parseInt(sc.nextLine());
@@ -39,13 +43,20 @@ public class InstituicaoView {
                     cadastrarInstituicaoView();
                     break;
                 case 2:
+                    alterarInstituicao();
                     break;
                 case 3:
+                    apagarInstituicao();
+                    break;
+                case 4:
+                    pesquisarInstituicao();
+                    break;
+                case 5:
                     listarInstituicao();
                     break;
                 default:
                     System.out.println("Opção invalida.");
-                    break;
+                break;
             }
         }
     } 
@@ -58,17 +69,63 @@ public class InstituicaoView {
         System.out.print("Nome: ");
         im.setNome(sc.nextLine());
         System.out.print("Código: ");
-        im.setCodigo(sc.nextInt());
+        im.setCodigo(sc.nextLine());
         System.out.println("Observações: ");
         im.setObservacoes(sc.nextLine());
       
         im.cadastrarInstituicao();
     }
     
-    public void listarInstituicao(){
-        System.out.println("Nome: " + im.getNome());
-        System.out.println("Código: " + im.getCodigo());
-        System.out.println("Observações: " + im.getObservacoes());
+    
+    public void listarInstituicao() throws SQLException {
+        System.out.println("==============================");
+        System.out.println("==========INSTITUIÇÕES============");
+        System.out.println("==============================");
+        im.listarInstituicao();
     }
-     
+
+    public void alterarInstituicao() throws SQLException {
+        System.out.println("==============================");
+        System.out.println("==========INSTITUIÇÃO=============");
+        System.out.println("==============================");
+
+        im.listarInstituicao();
+
+        System.out.print("Codigo para editar as informações: ");
+        im.setCodigo(sc.nextLine());
+        
+        System.out.print("Nome: ");
+        im.setNome(sc.nextLine());
+        System.out.print("Código: ");
+        im.setCodigo(sc.nextLine());
+        System.out.print("Observações: ");
+        im.setObservacoes(sc.nextLine());
+
+        im.alterarInstituicao();
+    }
+
+    public void pesquisarInstituicao() {
+        System.out.println("==============================");
+        System.out.println("==========INSTITUIÇÃO=============");
+        System.out.println("==============================");
+
+        System.out.print("Nome da Instituição: ");
+        im.setNome(sc.nextLine());
+
+        im.pesquisarInstituicao();
+    }
+
+    public void apagarInstituicao() throws SQLException {
+        System.out.println("==============================");
+        System.out.println("==========INSTITUIÇÃO=============");
+        System.out.println("==============================");
+        
+        im.listarInstituicao();
+        
+        System.out.print("Codigo da instituição para apagar: ");
+        im.setCodigo(sc.nextLine());
+        
+        im.apagarInstituicao();
+    }
+
 }

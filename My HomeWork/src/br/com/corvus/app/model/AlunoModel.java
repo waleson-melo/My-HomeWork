@@ -6,6 +6,7 @@
 package br.com.corvus.app.model;
 
 import br.com.corvus.app.conn.ConnectionSQLite;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,7 +16,7 @@ import java.util.logging.Logger;
  */
 public class AlunoModel extends PessoaModel{
     
-    private int matrícula;
+    private String matrícula;
     private String email;
     
     ConnectionSQLite conn;
@@ -30,11 +31,11 @@ public class AlunoModel extends PessoaModel{
         }
     }
    
-    public int getMatricula(){
+    public String getMatricula(){
         return matrícula;
     }
     
-    public void setMatricula( int matrícula ){
+    public void setMatricula( String matrícula ){
         this.matrícula = matrícula;
     }
     
@@ -61,7 +62,23 @@ public class AlunoModel extends PessoaModel{
             System.out.println(e);
         }
     }
-    
+    public void alterarAluno() {
+        ResultSet rs;
+        try {
+            this.conn.stm = this.conn.conn.createStatement();
+
+            // Alterando
+            this.conn.stm.executeUpdate("UPDATE aluno SET "
+                    + "nome = '" + getNome() + "',"
+                    + "matricula = '" + getMatricula () + "',"
+                    + "cpf = '" + getCpf() + "',"
+                    + "telefone = '" + getTelefone() + "',"
+                    + "WHERE email = '" + getEmail() + "'");
+
+        } catch (Exception e) {
+            System.out.println("Erro ao alterar seus dados: " + e);
+        }
+    }
     public void listarAluno(){
 
     }

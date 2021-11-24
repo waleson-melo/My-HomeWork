@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package br.com.corvus.app.view;
-
 import br.com.corvus.app.model.MateriaModel;
 import java.sql.SQLException;
 import java.util.Scanner;

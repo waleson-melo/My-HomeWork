@@ -27,7 +27,8 @@ public class AlunoView {
 
             System.out.println("(1) Cadastrar Aluno");
             System.out.println("(2) Alterar Dados (Aluno)");
-            System.out.println("(3) Listar Materias");
+            System.out.println("(3) Ver dados de cadastro");
+            System.out.println("(0) Voltar");
 
             System.out.println("Opção: ");
             opcao = Integer.parseInt(sc.nextLine());
@@ -39,6 +40,7 @@ public class AlunoView {
                     cadastrarAlunoView();
                     break;
                 case 2:
+                    alterarAluno();
                     break;
                 case 3:
                     listarAluno();
@@ -65,9 +67,33 @@ public class AlunoView {
         System.out.print("Email: ");
         am.setEmail(sc.nextLine());
         System.out.print("Matrícula: ");
-        am.setMatricula(sc.nextInt());
+        am.setMatricula(sc.nextLine());
         
         am.cadastrarAluno();
+    }
+    
+    public void alterarAluno() throws SQLException {
+        System.out.println("==============================");
+        System.out.println("==========ALUNO=============");
+        System.out.println("==============================");
+
+        am.listarAluno();
+
+        System.out.print("Matricula para editar as informações: ");
+        am.setMatricula(sc.nextLine());
+
+        System.out.print("Nome: ");
+        am.setNome(sc.nextLine());
+        System.out.print("Cpf: ");
+        am.setCpf(sc.nextLine());
+        System.out.print("Telefone: ");
+        am.setTelefone(sc.nextLine());
+        System.out.print("Email: ");
+        am.setEmail(sc.nextLine());
+        System.out.print("Matrícula: ");
+        am.setMatricula(sc.nextLine());
+
+        am.alterarAluno();
     }
     
     public void listarAluno(){
@@ -77,5 +103,4 @@ public class AlunoView {
         System.out.println("Email: " + am.getEmail());
         System.out.println("Matrícula: " + am.getMatricula());
     }
-    
 }
