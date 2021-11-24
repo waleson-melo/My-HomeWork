@@ -97,7 +97,7 @@ public class InstituicaoModel {
             this.conn.stm.executeUpdate("UPDATE instituicao SET "
                     + "codigo = '" + getCodigo() + "',"
                     + "nome = '" + getNome() + "',"
-                    + "observações = '" + getObservacoes() + "'");
+                    + "observacoes = '" + getObservacoes() + "'");
 
         } catch (Exception e) {
             System.out.println("Erro ao alterar instituição: " + e);
@@ -117,7 +117,7 @@ public class InstituicaoModel {
                 while (rs.next()) {
                     System.out.print("|Codigo: " + rs.getString("codigo") + ", ");
                     System.out.print("Nome: " + rs.getString("nome") + ", ");
-                    System.out.print("Observações: " + rs.getString("observações") + ", ");
+                    System.out.print("Observações: " + rs.getString("observacoes") + ", ");
                     System.out.println("");
                 }
             }
