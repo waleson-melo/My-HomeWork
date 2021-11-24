@@ -56,6 +56,7 @@ public class ConnectionSQLite {
             this.stm.executeUpdate("CREATE TABLE IF NOT EXISTS \"Aluno\" (\n"
                     + "	\"matricula\"	TEXT NOT NULL UNIQUE,\n"
                     + "	\"cpf\"         TEXT NOT NULL UNIQUE,\n"
+                    + " \"nome\"	TEXT,\n"
                     + "	\"email\"	TEXT NOT NULL,\n"
                     + "	\"telefone\"	TEXT NOT NULL\n"
                     + ");"
