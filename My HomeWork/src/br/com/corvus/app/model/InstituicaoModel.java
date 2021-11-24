@@ -114,12 +114,10 @@ public class InstituicaoModel {
             if (!rs.next()) {
                 System.out.println("Instituição não encontrada");
             } else {
-                while (rs.next()) {
-                    System.out.print("|Codigo: " + rs.getString("codigo") + ", ");
-                    System.out.print("Nome: " + rs.getString("nome") + ", ");
-                    System.out.print("Observações: " + rs.getString("observacoes") + ", ");
-                    System.out.println("");
-                }
+                System.out.print("|Codigo: " + rs.getString("codigo") + ", ");
+                System.out.print("Nome: " + rs.getString("nome") + ", ");
+                System.out.print("Observações: " + rs.getString("observacoes") + ", ");
+                System.out.println("");
             }
 
         } catch (Exception e) {
