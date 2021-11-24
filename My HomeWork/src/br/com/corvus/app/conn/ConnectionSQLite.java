@@ -20,13 +20,56 @@ public class ConnectionSQLite {
 
     public void initDB() {
         try {
-            // Remove e cria a tabela a cada execução. Mero exemplo
 
-            this.stm.executeUpdate("DROP TABLE IF EXISTS pessoas");
+            this.stm.executeUpdate("CREATE TABLE IF NOT EXISTS \"Materia\" ("
+                    + " \"codigo\"	INTEGER NOT NULL UNIQUE,\n"
+                    + "	\"nome\"	TEXT NOT NULL UNIQUE,\n"
+                    + "	\"cargaHoraria\"	TEXT NOT NULL,\n"
+                    + "	\"codigoProfessor\"	TEXT NOT NULL,\n"
+                    + "	\"professorNome\"	TEXT,\n"
+                    + "	\"status\"	TEXT,\n"
+                    + "	PRIMARY KEY(\"codigo\" AUTOINCREMENT)\n"
+                    + ");"
+            );
 
-            this.stm.executeUpdate("CREATE TABLE pessoas ("
-                    + "nome varchar(70) PRIMARY KEY NOT NULL,"
-                    + "idade integer);");
+            this.stm.executeUpdate("CREATE TABLE IF NOT EXISTS \"Atividade\" (\n"
+                    + "	\"codigo\"	INTEGER NOT NULL UNIQUE,\n"
+                    + "	\"nome\"	TEXT NOT NULL UNIQUE,\n"
+                    + "	\"codigoMateria\"	TEXT NOT NULL,\n"
+                    + "	\"nomeMateria\"	TEXT NOT NULL,\n"
+                    + "	\"data\"	TEXT NOT NULL,\n"
+                    + "	\"nota\"	REAL NOT NULL,\n"
+                    + "	\"status\"	TEXT NOT NULL,\n"
+                    + "	\"tipo\"	TEXT NOT NULL,\n"
+                    + "	PRIMARY KEY(\"codigo\" AUTOINCREMENT)\n"
+                    + ");"
+            );
+
+            this.stm.executeUpdate("CREATE TABLE IF NOT EXISTS \"Instituicao\" (\n"
+                    + "	\"codigo\"	INTEGER NOT NULL UNIQUE,\n"
+                    + "	\"nome\"	TEXT NOT NULL UNIQUE,\n"
+                    + "	\"observacoes\"	TEXT,\n"
+                    + "	PRIMARY KEY(\"codigo\" AUTOINCREMENT)\n"
+                    + ");"
+            );
+
+            this.stm.executeUpdate("CREATE TABLE IF NOT EXISTS \"Aluno\" (\n"
+                    + "	\"matricula\"	TEXT NOT NULL UNIQUE,\n"
+                    + "	\"cpf\"         TEXT NOT NULL UNIQUE,\n"
+                    + "	\"email\"	TEXT NOT NULL,\n"
+                    + "	\"telefone\"	TEXT NOT NULL\n"
+                    + ");"
+            );
+
+            this.stm.executeUpdate("CREATE TABLE IF NOT EXISTS \"Professor\" (\n"
+                    + "	\"codigo\"	TEXT NOT NULL UNIQUE,\n"
+                    + "	\"cpf\"	TEXT NOT NULL UNIQUE,\n"
+                    + "	\"nome\"	TEXT NOT NULL,\n"
+                    + "	\"telefone\"	TEXT NOT NULL,\n"
+                    + "	\"email\"	TEXT NOT NULL\n"
+                    + ");"
+            );
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
