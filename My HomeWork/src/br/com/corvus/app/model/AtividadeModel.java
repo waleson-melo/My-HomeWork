@@ -100,7 +100,7 @@ public class AtividadeModel {
     public void cadastrarAtividade() {
         try {
             this.conn.stm = this.conn.conn.createStatement();
-            this.conn.stm.executeUpdate("INSERT INTO atividade ("
+            this.conn.stm.executeUpdate("INSERT INTO Atividade ("
                     + "nome, codigoMateria, nomeMateria, data,"
                     + "nota, status, tipo)"
                     + " VALUES ("
@@ -121,7 +121,7 @@ public class AtividadeModel {
             this.conn.stm = this.conn.conn.createStatement();
 
             // Alterando
-            this.conn.stm.executeUpdate("UPDATE atividade SET "
+            this.conn.stm.executeUpdate("UPDATE Atividade SET "
                     + "nome = '" + getNome() + "',"
                     + "codigoMateria = '" + getCodigoMateria()+ "',"
                     + "nomeMateria = '" + getNomeMateria()+ "',"
@@ -139,7 +139,7 @@ public class AtividadeModel {
     public void apagarAtividade() {
         try {
             this.conn.stm = this.conn.conn.createStatement();
-            int x = this.conn.stm.executeUpdate("DELETE FROM atividade "
+            int x = this.conn.stm.executeUpdate("DELETE FROM Atividade "
                     + "WHERE codigo = '" + getCodigo() + "'");
 
             if (x == 1) {
@@ -156,7 +156,7 @@ public class AtividadeModel {
         ResultSet rs;
         try {
             this.conn.stm = this.conn.conn.createStatement();
-            rs = this.conn.stm.executeQuery("SELECT * FROM atividade "
+            rs = this.conn.stm.executeQuery("SELECT * FROM Atividade "
                     + "WHERE nome = '" + getNome() + "'");
 
             if (!rs.next()) {
@@ -182,7 +182,7 @@ public class AtividadeModel {
         ResultSet rs;
         try {
             this.conn.stm = this.conn.conn.createStatement();
-            rs = this.conn.stm.executeQuery("SELECT * FROM atividade ORDER BY data");
+            rs = this.conn.stm.executeQuery("SELECT * FROM Atividade ORDER BY data");
 
             while (rs.next()) {
                 System.out.print("|Codigo: " + rs.getString("codigo") + ", ");
