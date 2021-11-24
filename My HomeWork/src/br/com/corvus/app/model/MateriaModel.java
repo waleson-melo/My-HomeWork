@@ -123,7 +123,7 @@ public class MateriaModel {
     public void cadastrarMateria() throws SQLException {
         try {
             this.conn.stm = this.conn.conn.createStatement();
-            this.conn.stm.executeUpdate("INSERT INTO materia ("
+            this.conn.stm.executeUpdate("INSERT INTO Materia ("
                     + "nome, cargaHoraria, codigoProfessor, professorNome,"
                     + "status)"
                     + " VALUES ("
@@ -143,7 +143,7 @@ public class MateriaModel {
             this.conn.stm = this.conn.conn.createStatement();
 
             // Alterando
-            this.conn.stm.executeUpdate("UPDATE materia SET "
+            this.conn.stm.executeUpdate("UPDATE Materia SET "
                     + "nome = '" + getNome() + "',"
                     + "cargaHoraria = '" + getCargaHoraria() + "',"
                     + "codigoProfessor = '" + getCodigoProfessor() + "',"
@@ -160,7 +160,7 @@ public class MateriaModel {
         ResultSet rs;
         try {
             this.conn.stm = this.conn.conn.createStatement();
-            rs = this.conn.stm.executeQuery("SELECT * FROM materia "
+            rs = this.conn.stm.executeQuery("SELECT * FROM Materia "
                     + "WHERE nome = '" + getNome() + "'");
 
             if (!rs.next()) {
@@ -183,7 +183,7 @@ public class MateriaModel {
     public void apagarMateria() {
         try {
             this.conn.stm = this.conn.conn.createStatement();
-            int x = this.conn.stm.executeUpdate("DELETE FROM materia "
+            int x = this.conn.stm.executeUpdate("DELETE FROM Materia "
                     + "WHERE codigo = '" + getCodigo() + "'");
 
             if (x == 1) {
@@ -200,7 +200,7 @@ public class MateriaModel {
         ResultSet rs;
         try {
             this.conn.stm = this.conn.conn.createStatement();
-            rs = this.conn.stm.executeQuery("SELECT * FROM materia ORDER BY nome");
+            rs = this.conn.stm.executeQuery("SELECT * FROM Materia ORDER BY nome");
 
             while (rs.next()) {
                 System.out.print("|Codigo: " + rs.getString("codigo") + ", ");
