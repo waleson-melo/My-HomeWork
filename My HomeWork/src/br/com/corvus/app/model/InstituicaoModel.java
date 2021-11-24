@@ -78,7 +78,7 @@ public class InstituicaoModel {
         try {
             this.conn.stm = this.conn.conn.createStatement();
             this.conn.stm.executeUpdate("INSERT INTO instituição ("
-                    + "codigo, nome, observações)"
+                    + "codigo, nome, observacoes)"
                     + " VALUES ("
                     + "'" + getCodigo() + "',"
                     + "'" + getNome() + "',"
@@ -130,7 +130,7 @@ public class InstituicaoModel {
     public void apagarInstituicao() {
         try {
             this.conn.stm = this.conn.conn.createStatement();
-            int x = this.conn.stm.executeUpdate("DELETE FROM instituição "
+            int x = this.conn.stm.executeUpdate("DELETE FROM instituicao "
                     + "WHERE codigo = '" + getCodigo() + "'");
 
             if (x == 1) {
@@ -152,12 +152,12 @@ public class InstituicaoModel {
             while (rs.next()) {
                 System.out.print("|Codigo: " + rs.getString("codigo") + ", ");
                 System.out.print("Nome: " + rs.getString("nome") + ", ");
-                System.out.print("Observações: " + rs.getString("observações") + ", ");
+                System.out.print("Observações: " + rs.getString("observacoes") + ", ");
                 System.out.println("");
             }
 
         } catch (Exception e) {
-            System.out.println("erro ao listar materias: " + e);
+            System.out.println("erro ao listar instituicoes: " + e);
         }
 
     }

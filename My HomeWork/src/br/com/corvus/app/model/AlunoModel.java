@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  */
 public class AlunoModel extends PessoaModel{
     
-    private String matrícula;
+    private String matricula;
     private String email;
     
     ConnectionSQLite conn;
@@ -32,11 +32,11 @@ public class AlunoModel extends PessoaModel{
     }
    
     public String getMatricula(){
-        return matrícula;
+        return matricula;
     }
     
-    public void setMatricula( String matrícula ){
-        this.matrícula = matrícula;
+    public void setMatricula( String matricula ){
+        this.matricula = matricula;
     }
     
     public String getEmail(){
