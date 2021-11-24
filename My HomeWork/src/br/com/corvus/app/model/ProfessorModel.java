@@ -99,7 +99,7 @@ public class ProfessorModel extends PessoaModel{
         ResultSet rs;
         try {
             this.conn.stm = this.conn.conn.createStatement();
-            rs = this.conn.stm.executeQuery("SELECT * FROM professor "
+            rs = this.conn.stm.executeQuery("SELECT * FROM Professor "
                     + "WHERE nome = '" + getNome() + "'");
 
             if (!rs.next()) {
@@ -120,7 +120,7 @@ public class ProfessorModel extends PessoaModel{
     public void apagarProfessor(){
         try {
             this.conn.stm = this.conn.conn.createStatement();
-            int x = this.conn.stm.executeUpdate("DELETE FROM professor "
+            int x = this.conn.stm.executeUpdate("DELETE FROM Professor "
                     + "WHERE codigo = '" + getCodigo() + "'");
 
             if (x == 1) {
@@ -137,7 +137,7 @@ public class ProfessorModel extends PessoaModel{
         ResultSet rs;
         try {
             this.conn.stm = this.conn.conn.createStatement();
-            rs = this.conn.stm.executeQuery("SELECT * FROM materia ORDER BY nome");
+            rs = this.conn.stm.executeQuery("SELECT * FROM Professor ORDER BY nome");
 
             while (rs.next()) {
                 System.out.print("Nome: " + rs.getString("nome") + ", ");
