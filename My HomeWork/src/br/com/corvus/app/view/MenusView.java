@@ -17,7 +17,7 @@ public class MenusView {
 
         System.out.println("(1) Gerenciar Atividades");
         System.out.println("(2) Gerenciar Materias");
-        System.out.println("(3) Gerenciar Insituições");
+        System.out.println("(3) Gerenciar Instituições");
         System.out.println("(4) Gerenciar Professores");
         System.out.println("(5) Gerenciar Meus Dados");
         System.out.println("(0) Sair do Programa");

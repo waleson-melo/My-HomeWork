@@ -77,7 +77,7 @@ public class InstituicaoModel {
   public void cadastrarInstituicao() throws SQLException {
         try {
             this.conn.stm = this.conn.conn.createStatement();
-            this.conn.stm.executeUpdate("INSERT INTO instituição ("
+            this.conn.stm.executeUpdate("INSERT INTO Instituicao ("
                     + "codigo, nome, observacoes)"
                     + " VALUES ("
                     + "'" + getCodigo() + "',"
@@ -94,7 +94,7 @@ public class InstituicaoModel {
             this.conn.stm = this.conn.conn.createStatement();
 
             // Alterando
-            this.conn.stm.executeUpdate("UPDATE instituicao SET "
+            this.conn.stm.executeUpdate("UPDATE Instituicao SET "
                     + "codigo = '" + getCodigo() + "',"
                     + "nome = '" + getNome() + "',"
                     + "observacoes = '" + getObservacoes() + "'");
@@ -108,7 +108,7 @@ public class InstituicaoModel {
         ResultSet rs;
         try {
             this.conn.stm = this.conn.conn.createStatement();
-            rs = this.conn.stm.executeQuery("SELECT * FROM instituicao "
+            rs = this.conn.stm.executeQuery("SELECT * FROM Instituicao "
                     + "WHERE nome = '" + getNome() + "'");
 
             if (!rs.next()) {
@@ -130,7 +130,7 @@ public class InstituicaoModel {
     public void apagarInstituicao() {
         try {
             this.conn.stm = this.conn.conn.createStatement();
-            int x = this.conn.stm.executeUpdate("DELETE FROM instituicao "
+            int x = this.conn.stm.executeUpdate("DELETE FROM Instituicao "
                     + "WHERE codigo = '" + getCodigo() + "'");
 
             if (x == 1) {
@@ -147,7 +147,7 @@ public class InstituicaoModel {
         ResultSet rs;
         try {
             this.conn.stm = this.conn.conn.createStatement();
-            rs = this.conn.stm.executeQuery("SELECT * FROM instituicao ORDER BY nome");
+            rs = this.conn.stm.executeQuery("SELECT * FROM Instituicao ORDER BY nome");
 
             while (rs.next()) {
                 System.out.print("|Codigo: " + rs.getString("codigo") + ", ");

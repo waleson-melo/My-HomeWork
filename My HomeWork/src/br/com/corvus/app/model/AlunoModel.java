@@ -50,7 +50,7 @@ public class AlunoModel extends PessoaModel{
     public void cadastrarAluno() throws SQLException {
         try {
             this.conn.stm = this.conn.conn.createStatement();
-            this.conn.stm.executeUpdate("INSERT INTO aluno ("
+            this.conn.stm.executeUpdate("INSERT INTO Aluno ("
                     + "nome, matricula, cpf,  telefone," + "email)"
                     + " VALUES ("
                     + "'" + getNome() + "',"
@@ -68,7 +68,7 @@ public class AlunoModel extends PessoaModel{
             this.conn.stm = this.conn.conn.createStatement();
 
             // Alterando
-            this.conn.stm.executeUpdate("UPDATE aluno SET "
+            this.conn.stm.executeUpdate("UPDATE Aluno SET "
                     + "nome = '" + getNome() + "',"
                     + "matricula = '" + getMatricula () + "',"
                     + "cpf = '" + getCpf() + "',"
